@@ -7,8 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+const rds_hostname = process.env.RDS_HOSTNAME;
 const db = mysql.createConnection({
-  host: process.env.INSTANCE_PUBLIC_IP,
+  host: rds_hostname,
   user: 'admin',
   password: 'TUDproj23',
   database: 'cars_db',
